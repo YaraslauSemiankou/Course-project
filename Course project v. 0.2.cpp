@@ -56,6 +56,14 @@ int main()
         int f=0;
         ifstream myfile("book.txt");
         if (myfile.is_open())
+        {
+            cout << left << setw(20) << "Name" << setw(20) << "Surname" << right << setw(25) << "Final grade (Avg.)" << left << setw(25) << "/ Final grade (Med.)" << endl;
+            cout << setfill('*') << setw(85) << "*" << setfill(' ') << endl;
+            int a,b,c,d,e,f_exam;
+            string name_text,surname_text;
+
+                {
+            if (myfile >> name_text >> surname_text >> a >> b >> c >> d >> e >> f_exam)
 
 
 
