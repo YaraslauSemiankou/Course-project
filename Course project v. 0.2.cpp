@@ -65,7 +65,17 @@ int main()
                 {
             if (myfile >> name_text >> surname_text >> a >> b >> c >> d >> e >> f_exam)
             {
-
+                student.push_back(program());
+                student[f].name = name_text;
+                student[f].surname = surname_text;
+                student[f].homework.push_back(a);
+                student[f].homework.push_back(b);
+                student[f].homework.push_back(c);
+                student[f].homework.push_back(d);
+                student[f].homework.push_back(e);
+                student[f].exam = f_exam;
+                student[f].final_mark = final_mark_average_function(student[f].homework, student[f].exam);
+                student[f].final_mark_median = final_mark_median_function(student[f].homework, student[f].exam);
 
             }
             else
