@@ -76,6 +76,9 @@ int main()
                 student[f].exam = f_exam;
                 student[f].final_mark = final_mark_average_function(student[f].homework, student[f].exam);
                 student[f].final_mark_median = final_mark_median_function(student[f].homework, student[f].exam);
+                cout  << left << setw(20) << student[f].name << setw(20) << student[f].surname
+        << right << setw(25) << setprecision(2) << fixed << student[f].final_mark << right << setw(20) << student[f].final_mark_median << '\n';
+                f++;
 
             }
             else
