@@ -61,10 +61,18 @@ int main()
             cout << setfill('*') << setw(85) << "*" << setfill(' ') << endl;
             int a,b,c,d,e,f_exam;
             string name_text,surname_text;
-
+            while (getline(myfile,line))
                 {
             if (myfile >> name_text >> surname_text >> a >> b >> c >> d >> e >> f_exam)
+            {
 
+
+            }
+            else
+                {cout << left << setw(20) << "Name" << setw(20) << "Surname" << right << setw(25) << "Final grade (Avg.)" << left << setw(25) << "/ Final grade (Med.)" << endl;
+    cout << setfill('*') << setw(85) << "*" << setfill(' ') << endl;}
+                }}
+        else {cout << "Unable to open the file";}
 
 
 
