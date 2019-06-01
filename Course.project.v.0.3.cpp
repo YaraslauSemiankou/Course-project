@@ -120,13 +120,14 @@ int main()
             }
         try
         {
-            if (student[i].homework==0) throw "The student did not take the exam!";
+            if (student[i].homework[0]==0 || student[i].exam==0) throw "The student can not be evaluated because:";
             student[i].final_mark_median = final_mark_median_function(student[i].homework, student[i].exam);
             student[i].final_mark = final_mark_average_function(student[i].homework, student[i].exam);
         }
         catch(const char* msg)
         {
             cout << msg << endl;
+            cout << "  1) They does not have any evaluated homework;\n  2) They did not take the final exam."<< endl;
         }
 
     }
