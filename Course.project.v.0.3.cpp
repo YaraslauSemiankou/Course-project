@@ -15,7 +15,7 @@ int main()
     switch (decision_2)
     {
     case 'y':
-        {
+    {
         int f=0;
         ifstream myfile("book.txt");
         if (myfile.is_open())
@@ -51,52 +51,54 @@ int main()
 
 
 
-        break;}
-        case 'n':
+        break;
+    }
+    case 'n':
     {
         for(i=0; i<999; i++)
-    {   student.push_back(program());
-        string name_temporary, surname_temporary;
-        cout << "Please enter student's name: \n";
-        cin >> name_temporary;
-        if (name_temporary == "0") break;
-        student[i].name = name_temporary;
-
-        cout << "Enter student's surname: \n";
-        try{cin >> surname_temporary;
-        if (surname_temporary == "0") throw "Incorrect input!";
-        student[i].surname = surname_temporary;}
-        catch (const char* msg)
         {
-            cout << msg << endl;
-        }
+            string name_temporary, surname_temporary;
+            cout << "Please enter student's name: \n";
+            cin >> name_temporary;
+            if (name_temporary == "0") break;
+            student.push_back(program());
+            student[i].name = name_temporary;
+
+            cout << "Enter student's surname: \n";
+            try{cin >> surname_temporary;
+            if (surname_temporary == "0")
+                throw "Incorrect input!";
+            student[i].surname = surname_temporary;}
+            catch (const char* msg)
+            {
+                student[i].surname = "ERROR";
+                cout << msg << endl;
+            }
 
 
-        float total_homework_temporary = 0;
-        int k;
-        float exam_temporary, final_mark_temporary;
+            float total_homework_temporary = 0;
+            int k;
+            float exam_temporary, final_mark_temporary;
 
-        cout << "Do you want to generate random numbers as grades for homework? (y/n): ";
-        char decision;
-        cin >> decision;
-        switch (decision)
-        {
+            cout << "Do you want to generate random numbers as grades for homework? (y/n): \n";
+            char decision;
+            cin >> decision;
+            switch (decision)
+            {
             case 'n':
+                    for ( k=0; k>-1; k++)
+                    {
+                        int input;
+                        cout << "Enter value of homework " << k+1 << ":\n";
+                        cin >> input;
+                        student[i].homework.push_back(input);
+                        if (!cin || input == 0 || input > 10) break;
+                    }
 
-                for ( k=0; k>-1; k++)
-                {
-                    int input;
-                    cout << "Enter value of homework " << k+1 << ":\n";
-                    cin >> input;
-                    if (!cin || input == 0 || input > 10) break;
-                    student[i].homework.push_back(input);
-
-                }
                 cout << "Enter student's mark for the exam: \n";
                 cin >> exam_temporary;
                 if (!cin || exam_temporary == 0 || exam_temporary > 10) break;
                 student[i].exam = exam_temporary;
-                student[i].final_mark = final_mark_average_function(student[i].homework, student[i].exam);
                 break;
 
 
@@ -110,12 +112,22 @@ int main()
 
                 }
                 student[i].exam = rand()%11;
+                break;
 
             default:
+                cout << "Incorrect input!";
                 break;
+            }
+        try
+        {
+            if (student[i].homework==0) throw "The student did not take the exam!";
+            student[i].final_mark_median = final_mark_median_function(student[i].homework, student[i].exam);
+            student[i].final_mark = final_mark_average_function(student[i].homework, student[i].exam);
         }
-        student[i].final_mark_median = final_mark_median_function(student[i].homework, student[i].exam);
-        student[i].final_mark = final_mark_average_function(student[i].homework, student[i].exam);
+        catch(const char* msg)
+        {
+            cout << msg << endl;
+        }
 
     }
 
@@ -129,6 +141,7 @@ int main()
     break;}
 
     default:
+        cout << "Incorrect input!";
         break;
     }
     return 0;
