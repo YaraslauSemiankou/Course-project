@@ -4,14 +4,16 @@
 #include <iomanip>
 #include <algorithm>
 
+
 struct program
 {
   std::string name, surname;
-  std::vector<float> homework;
-  float exam, final_mark, final_mark_median;
+  std::vector<int> homework;
+  int exam;
+  float final_mark, final_mark_median;
 };
 
-float final_mark_average_function ( std::vector<float> homework_data, float exam_function )
+float final_mark_average_function ( std::vector<int> homework_data, int exam_function )
 {
     float sum;
     for(int k=0; k<=homework_data.size(); k++)
@@ -23,7 +25,7 @@ float final_mark_average_function ( std::vector<float> homework_data, float exam
     return r;
 }
 
-float final_mark_median_function (std::vector<float> homework_data_2, float exam_function_2)
+float final_mark_median_function (std::vector<int> homework_data_2, int exam_function_2)
 {
     float median_mark_temporary;
         sort(homework_data_2.begin(), homework_data_2.end());
