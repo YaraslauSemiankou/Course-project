@@ -28,7 +28,9 @@ int main()
 
             while (myfile >> name_text >> surname_text >> a >> b >> c >> d >> e >> f_exam)
             {
+
                 student.push_back(program());
+
                 student[f].name = name_text;
                 student[f].surname = surname_text;
                 student[f].homework.push_back(a);
@@ -53,19 +55,22 @@ int main()
         case 'n':
     {
         for(i=0; i<999; i++)
-    {
+    {   student.push_back(program());
         string name_temporary, surname_temporary;
         cout << "Please enter student's name: \n";
         cin >> name_temporary;
         if (name_temporary == "0") break;
+        student[i].name = name_temporary;
 
         cout << "Enter student's surname: \n";
-        cin >> surname_temporary;
-        if (surname_temporary == "0") break;
-        student.push_back(program());
+        try{cin >> surname_temporary;
+        if (surname_temporary == "0") throw "Incorrect input!";
+        student[i].surname = surname_temporary;}
+        catch (const char* msg)
+        {
+            cout << msg << endl;
+        }
 
-        student[i].name = name_temporary;
-        student[i].surname = surname_temporary;
 
         float total_homework_temporary = 0;
         int k;
@@ -77,14 +82,14 @@ int main()
         switch (decision)
         {
             case 'n':
-                for ( k=0; k<999; k++)
-                {
 
-                    float homework_temporary;
+                for ( k=0; k>-1; k++)
+                {
+                    int input;
                     cout << "Enter value of homework " << k+1 << ":\n";
-                    cin >> homework_temporary;
-                    if (!cin || homework_temporary == 0 || homework_temporary > 10) break;
-                    student[i].homework.push_back(homework_temporary);
+                    cin >> input;
+                    if (!cin || input == 0 || input > 10) break;
+                    student[i].homework.push_back(input);
 
                 }
                 cout << "Enter student's mark for the exam: \n";
