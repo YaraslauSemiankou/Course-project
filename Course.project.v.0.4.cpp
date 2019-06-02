@@ -54,9 +54,9 @@ int main()
             string name_temporary, surname_temporary;
             cout << "Please enter student's name: \n";
             cin >> name_temporary;
-            if (name_temporary == "0") break;
             student.push_back(program());
             student[i].name = name_temporary;
+            if (name_temporary == "0") break;
 
             cout << "Enter student's surname: \n";
             try
@@ -136,12 +136,12 @@ int main()
     }
     try
     {
-        if (decision_2 != 'y' && decision_2 != 'n')
+        if ((decision_2 != 'y' && decision_2 != 'n') || student[0].name == "0")
             throw "No data to output!";
-    vector<program> failed_vector;
-    vector<program> passed_vector;
-    ofstream failed, passed;
-    for (int i=0; i<student.size(); i++)
+        vector<program> failed_vector;
+        vector<program> passed_vector;
+        ofstream failed, passed;
+        for (int i=0; i<student.size(); i++)
     {
         if(student[i].final_mark<5)
         {
@@ -151,12 +151,12 @@ int main()
             passed_vector.push_back(student[i]);
     }
 
-    failed.open("failed.txt");
-    failed << left << setw(85) << " List of students who failed the subject";
-    failed << setfill('*') << setw(85) << "*" << setfill(' ') << endl;
-    failed << left << setw(20) << "Name" << setw(20) << "Surname" << right << setw(25) << "Final grade (Avg.)" << left << setw(25) << "/ Final grade (Med.)" << endl;
-    failed << setfill('*') << setw(85) << "*" << setfill(' ') << endl;
-    for (int i=0; i<failed_vector.size(); i++)
+        failed.open("failed.txt");
+        failed << left << setw(85) << " List of students who failed the subject";
+        failed << setfill('*') << setw(85) << "*" << setfill(' ') << endl;
+        failed << left << setw(20) << "Name" << setw(20) << "Surname" << right << setw(25) << "Final grade (Avg.)" << left << setw(25) << "/ Final grade (Med.)" << endl;
+        failed << setfill('*') << setw(85) << "*" << setfill(' ') << endl;
+        for (int i=0; i<failed_vector.size(); i++)
     {
         failed << left << setw(20) << failed_vector[i].name << setw(20) << failed_vector[i].surname
             << right << setw(25) << setprecision(2) << fixed << failed_vector[i].final_mark << right << setw(20) << failed_vector[i].final_mark_median << '\n';
