@@ -135,19 +135,42 @@ int main()
         break;
     }
 
-    vector<student> failed;
-    vector<student> passed;
+    vector<program> failed_vector;
+    vector<program> passed_vector;
     ofstream failed, passed;
     for (int i=0; i<student.size(); i++)
     {
         if(student[i].final_mark<5)
         {
-            failed.push_back(student[i]);
+            failed_vector.push_back(student[i]);
         }
         else
-            passed.push_back(student[i]);
+            passed_vector.push_back(student[i]);
     }
-    cout << left << setw(85) << " List of students who failed the exam"
+
+    failed.open("failed.txt");
+    failed << left << setw(85) << " List of students who failed the subject";
+    failed << setfill('*') << setw(85) << "*" << setfill(' ') << endl;
+    failed << left << setw(20) << "Name" << setw(20) << "Surname" << right << setw(25) << "Final grade (Avg.)" << left << setw(25) << "/ Final grade (Med.)" << endl;
+    failed << setfill('*') << setw(85) << "*" << setfill(' ') << endl;
+    for (int i=0; i<failed_vector.size(); i++)
+    {
+        failed << left << setw(20) << failed_vector[i].name << setw(20) << failed_vector[i].surname
+            << right << setw(25) << setprecision(2) << fixed << failed_vector[i].final_mark << right << setw(20) << failed_vector[i].final_mark_median << '\n';
+    }
+    failed.close();
+
+    passed.open("passed.txt");
+    passed << left << setw(85) << " List of students who passed the subject";
+    passed << setfill('*') << setw(85) << "*" << setfill(' ') << endl;
+    passed << left << setw(20) << "Name" << setw(20) << "Surname" << right << setw(25) << "Final grade (Avg.)" << left << setw(25) << "/ Final grade (Med.)" << endl;
+    passed << setfill('*') << setw(85) << "*" << setfill(' ') << endl;
+    for (int i=0; i<passed_vector.size(); i++)
+    {
+        passed << left << setw(20) << passed_vector[i].name << setw(20) << passed_vector[i].surname
+            << right << setw(25) << setprecision(2) << fixed << passed_vector[i].final_mark << right << setw(20) << passed_vector[i].final_mark_median << '\n';
+    }
+    passed.close();
     cout << left << setw(20) << "Name" << setw(20) << "Surname" << right << setw(25) << "Final grade (Avg.)" << left << setw(25) << "/ Final grade (Med.)" << endl;
     cout << setfill('*') << setw(85) << "*" << setfill(' ') << endl;
 

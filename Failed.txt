@@ -1,0 +1,5 @@
+ List of students who failed the subject                                             *************************************************************************************
+Name                Surname                    Final grade (Avg.)/ Final grade (Med.)     
+*************************************************************************************
+Eugenius            Jurkonis                                 2.88                2.80
+Britney             Spears                                   4.56                4.40

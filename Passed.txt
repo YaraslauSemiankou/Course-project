@@ -1,0 +1,6 @@
+ List of students who passed the subject                                             *************************************************************************************
+Name                Surname                    Final grade (Avg.)/ Final grade (Med.)     
+*************************************************************************************
+Joshua              Cabbage                                  8.84                9.00
+Maxima              Lobster                                  6.32                6.40
+Yaraslau            Semiankou                                8.32                8.40
