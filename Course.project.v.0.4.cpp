@@ -134,8 +134,23 @@ int main()
         cout << "Incorrect input!";
         break;
     }
+
+    vector<student> failed;
+    vector<student> passed;
+    ofstream failed, passed;
+    for (int i=0; i<student.size(); i++)
+    {
+        if(student[i].final_mark<5)
+        {
+            failed.push_back(student[i]);
+        }
+        else
+            passed.push_back(student[i]);
+    }
+    cout << left << setw(85) << " List of students who failed the exam"
     cout << left << setw(20) << "Name" << setw(20) << "Surname" << right << setw(25) << "Final grade (Avg.)" << left << setw(25) << "/ Final grade (Med.)" << endl;
-        cout << setfill('*') << setw(85) << "*" << setfill(' ') << endl;
+    cout << setfill('*') << setw(85) << "*" << setfill(' ') << endl;
+
         for (int l=0; l<student.size(); l++)
         {
             cout  << left << setw(20) << student[l].name << setw(20) << student[l].surname
