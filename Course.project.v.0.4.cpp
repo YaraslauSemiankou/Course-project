@@ -171,13 +171,23 @@ int main()
             << right << setw(25) << setprecision(2) << fixed << passed_vector[i].final_mark << right << setw(20) << passed_vector[i].final_mark_median << '\n';
     }
     passed.close();
+
     cout << left << setw(20) << "Name" << setw(20) << "Surname" << right << setw(25) << "Final grade (Avg.)" << left << setw(25) << "/ Final grade (Med.)" << endl;
     cout << setfill('*') << setw(85) << "*" << setfill(' ') << endl;
-
-        for (int l=0; l<student.size(); l++)
-        {
-            cout  << left << setw(20) << student[l].name << setw(20) << student[l].surname
-            << right << setw(25) << setprecision(2) << fixed << student[l].final_mark << right << setw(20) << student[l].final_mark_median << '\n';
-        }
+    cout << setfill('*') << left << setw(85) << "List of students who passed the subject" << endl;
+    cout << setw(85) << "*" << setfill(' ') << endl;
+    for (int i=0; i<passed_vector.size(); i++)
+    {
+        cout << left << setw(20) << passed_vector[i].name << setw(20) << passed_vector[i].surname
+            << right << setw(25) << setprecision(2) << fixed << passed_vector[i].final_mark << right << setw(20) << passed_vector[i].final_mark_median << '\n';
+    }
+    cout << setfill('*') << setw(85) << "*" << setfill(' ') << endl;
+    cout << setfill('*') << left << setw(85) << "List of students who failed the subject" << endl;
+    cout << setw(85) << "*" << setfill(' ') << endl;
+    for (int i=0; i<failed_vector.size(); i++)
+    {
+        cout << left << setw(20) << failed_vector[i].name << setw(20) << failed_vector[i].surname
+            << right << setw(25) << setprecision(2) << fixed << failed_vector[i].final_mark << right << setw(20) << failed_vector[i].final_mark_median << '\n';
+    }
     return 0;
 }

@@ -1,0 +1,6 @@
+Name	 	Surname 	HW1	HW2 	HW3 	HW4 	HW5 	Exam
+Joshua 		Cabbage 	8 	9 	10 	6 	10 	9
+Maxima 		Lobster 	7 	10 	8 	5 	4 	6
+Yaraslau 	Semiankou 	2 	6 	10 	7 	4	10
+Eugenius	Jurkonis	3	5	4	8	1	2
+Britney		Spears		5	2	1	3	1	6
