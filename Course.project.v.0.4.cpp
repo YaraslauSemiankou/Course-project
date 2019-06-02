@@ -134,7 +134,10 @@ int main()
         cout << "Incorrect input!";
         break;
     }
-
+    try
+    {
+        if (decision_2 != 'y' && decision_2 != 'n')
+            throw "No data to output!";
     vector<program> failed_vector;
     vector<program> passed_vector;
     ofstream failed, passed;
@@ -172,7 +175,7 @@ int main()
     }
     passed.close();
 
-    cout << left << setw(20) << "Name" << setw(20) << "Surname" << right << setw(25) << "Final grade (Avg.)" << left << setw(25) << "/ Final grade (Med.)" << endl;
+    cout << '\n' << left << setw(20) << "Name" << setw(20) << "Surname" << right << setw(25) << "Final grade (Avg.)" << left << setw(25) << "/ Final grade (Med.)" << endl;
     cout << setfill('*') << setw(85) << "*" << setfill(' ') << endl;
     cout << setfill('*') << left << setw(85) << "List of students who passed the subject" << endl;
     cout << setw(85) << "*" << setfill(' ') << endl;
@@ -188,6 +191,11 @@ int main()
     {
         cout << left << setw(20) << failed_vector[i].name << setw(20) << failed_vector[i].surname
             << right << setw(25) << setprecision(2) << fixed << failed_vector[i].final_mark << right << setw(20) << failed_vector[i].final_mark_median << '\n';
+    }
+    }
+    catch(const char* no_data)
+    {
+        cout << no_data << endl;
     }
     return 0;
 }
